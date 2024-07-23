@@ -1,0 +1,109 @@
+// Day 9: DOM Manipulation
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="head">Activity 1</h1>
+        <p class="para">This is a paragraph.</p>
+
+        <h1>Activity 2</h1>
+        <ul>Chai Aur Code
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>NextJS</li>
+        </ul>
+
+        <div>
+            <h1 class="activity">Activity 3 </h1>
+            <h2>Activity 3.a </h2>
+        </div>
+
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE7QZBJaerrclVsxSR2eX83dH91gevN8MtEw&s" alt="Hitesh Choudhary Tshirt" > Tshirt
+        </div>
+        <p class="change">Click on the Button to change the content of this para </p>
+        <button>Click Me </button>
+    </div>
+    <script>
+// Activity 1: Selecting and Manipulating Elements
+
+    // • Task 1: Select an HTML element by its ID and change its text content.
+        const element = document.getElementById('head');
+        console.log(element);
+        element.textContent = "New Text Content";
+    
+    // • Task 2: Select an HTML element by its class and change its background color.
+        const ele  = document.querySelector('.para');
+        ele.style.backgroundColor = "green";
+        //both works
+        const elements = document.getElementsByClassName('para');
+        for (let i = 0; i < elements.length; i++) {
+        elements[i].style.backgroundColor = "red";
+        }
+
+// Activity 2: Creating and Appending Elements
+
+    // • Task 3: Create a new div element with some text content and append it to the body.
+        const newDiv = document.createElement('div');
+        newDiv.textContent = "New Div Element Activity 2";
+        document.body.appendChild(newDiv);
+
+
+    // • Task 4: Create a new li element and add it to an existing ul list.
+        const li = document.createElement('li');
+        li.textContent = "NodeJs";
+        // document.body.ul.appendChild(li);
+        document.body.querySelector('ul').appendChild(li);
+
+    
+// Activity 3: Removing Elements
+    // • Task 5: Select an HTML element and remove it from the DOM.
+        const elementRemove  = document.querySelector('div > h2')
+        elementRemove.remove();
+    
+    // • Task 6: Remove the last child of a specific HTML element.
+        const parent = document.querySelector('ul');
+        parent.removeChild(parent.lastChild)
+    
+// Activity 4: Modifying Attributes and Classes
+
+    // • Task 7: Select an HTML element and change one of its attributes (e.g., src of an img tag).
+        const image = document.querySelector('img');
+        image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuViN7efAwB5dbdgcONdw73Omzm1fDYqFK9g&s";
+
+    // • Task 8: Add and Remove a CSS class to/from an HTML element
+        const addClass = document.querySelector('.activity');
+        addClass.classList.add("underline");
+        addClass.classList.remove("underline");
+    
+// Activity 5: Event Handling
+
+    // • Task 9: Add a click event listener to a button that changes the text content of a paragraph.
+        const button = document.querySelector('button');
+        button.addEventListener('click', function(){
+            const para = document.querySelector('.change');
+            para.textContent = "New Clicked Text Content";
+        })      
+        
+    // • Task 10: Add a mouseover event listener to an element that changes its border color.
+        const borderColor = document.querySelector('button');
+        button.addEventListener('mouseover', function(){
+            borderColor.style.borderColor = "red";
+        });
+        button.addEventListener('mouseout', function(){
+            borderColor.style.borderColor = "";
+        });
+</script>    
+</body>
+</html>
