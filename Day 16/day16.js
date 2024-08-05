@@ -68,7 +68,7 @@
         function countOccurrences(arr, target) {
             if(arr.length == 0) return 0;
             if(arr[0]==target) return 1 + countOccurrences(arr.slice(1), target);
-            return countOccurrences(arr, target);  // Base case: if the target is not found, return 0
+            return countOccurrences(arr.slice(1), target);  // Base case: if the target is not found, return 0
         }           
         console.log(countOccurrences([1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 10], 5)); // Output: 2
 
